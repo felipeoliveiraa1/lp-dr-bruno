@@ -2,8 +2,10 @@
 import { Image } from 'astro:assets';
 import '../styles/style.css';
 
-import heroPortrait from '../assets/img/bruno-hero.jpg';
 import aboutMain from '../assets/img/bruno-stand.jpg';
+import newsMonaco from '../assets/img/news-monaco.png';
+import newsCaras from '../assets/img/news-caras.png';
+import newsMedrado from '../assets/img/news-medrado.png';
 import aboutBook from '../assets/img/book-fullface.jpg';
 import philoBg from '../assets/img/lounge.jpg';
 import gWaiting from '../assets/img/waiting.jpg';
@@ -64,8 +66,11 @@ const waMsg = wa + '?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="topo">
-  <div class="hero__glow"></div>
-  <div class="wrap-wide hero__grid">
+  <picture class="hero__bg">
+    <source media="(max-width:760px)" srcset="/hero-bg-mobile.jpg" />
+    <img src="/hero-new.jpg" alt="Dr. Bruno Camargo — Clinic Perfect Face" fetchpriority="high" width="1920" height="1080" />
+  </picture>
+  <div class="wrap-wide hero__inner">
     <div class="hero__copy">
       <span class="eyebrow reveal">Harmonização Orofacial · Estética Facial Avançada</span>
       <h1 class="display reveal d1">A excelência que transforma rostos e <em class="gold-text">eleva a autoestima.</em></h1>
@@ -76,16 +81,6 @@ const waMsg = wa + '?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%
           Agendar avaliação
         </a>
         <a class="btn btn-ghost" href="#tratamentos">Ver tratamentos</a>
-      </div>
-    </div>
-    <div class="hero__media reveal d2">
-      <div class="hero__ring"></div>
-      <div class="hero__frame" data-parallax>
-        <Image src={heroPortrait} alt="Dr. Bruno Camargo, especialista em harmonização orofacial" widths={[480, 768, 1100]} sizes="(max-width:860px) 90vw, 42vw" format="webp" quality={78} loading="eager" fetchpriority="high" />
-      </div>
-      <div class="hero__badge">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 5.2L20 8l-4 4 1 6-5-2.8L7 18l1-6-4-4 5.6-.8z" stroke-linejoin="round"/></svg>
-        <div><b>Mônaco</b><span>Palestrante no AMWC, o maior congresso de medicina estética do mundo</span></div>
       </div>
     </div>
   </div>
@@ -255,6 +250,43 @@ const waMsg = wa + '?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%
       <div class="ccard reveal d1"><span class="star">★★★★★</span><b>Tierry</b><span>Cantor — buscou um refinamento sutil em sua transformação estética.</span></div>
       <div class="ccard reveal d2"><span class="star">★★★★★</span><b>Gabi Martins</b><span>Cantora e apresentadora — confia na assinatura natural do Dr. Bruno.</span></div>
       <div class="ccard reveal d3"><span class="star">★★★★★</span><b>Medrado</b><span>Personalidade — realizou retoques em sua harmonização facial.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NA MÍDIA ========== -->
+<section class="section-pad news" id="midia" style="background:var(--white)">
+  <div class="wrap">
+    <div class="shead center reveal">
+      <span class="eyebrow">Dr. Bruno na mídia</span>
+      <h2 class="h-sec">Reconhecido pela<br /><em class="gold-text">imprensa nacional.</em></h2>
+      <p class="lead" style="margin-inline:auto">A trajetória e os resultados do Dr. Bruno Camargo em destaque nos principais veículos do país.</p>
+    </div>
+    <div class="news-grid">
+      <article class="ncard reveal d1">
+        <div class="ncard__img"><Image src={newsMonaco} alt="Reportagem: Dr. Bruno Camargo palestra em Mônaco, no AMWC" widths={[420, 760]} sizes="(max-width:860px) 92vw, 32vw" format="webp" quality={78} /></div>
+        <div class="ncard__body">
+          <span class="ncard__src">Pulse Brand</span>
+          <h3>Dentista das celebridades palestra em Mônaco, no AMWC</h3>
+          <p>Participação no principal congresso global de medicina estética reforça a projeção internacional do especialista.</p>
+        </div>
+      </article>
+      <article class="ncard reveal d2">
+        <div class="ncard__img"><Image src={newsCaras} alt="Reportagem CARAS: cirurgião de Tierry explica a transformação do cantor" widths={[420, 760]} sizes="(max-width:860px) 92vw, 32vw" format="webp" quality={78} /></div>
+        <div class="ncard__body">
+          <span class="ncard__src">Revista CARAS</span>
+          <h3>“Buscando um refinamento sutil”: a transformação de Tierry</h3>
+          <p>Em entrevista à CARAS, Dr. Bruno Camargo detalha o procedimento do cantor — naturalidade acima de tudo.</p>
+        </div>
+      </article>
+      <article class="ncard reveal d3">
+        <div class="ncard__img"><Image src={newsMedrado} alt="Reportagem Folha Vitória / R7: Medrado retoca harmonização com Dr. Bruno Camargo" widths={[420, 760]} sizes="(max-width:860px) 92vw, 32vw" format="webp" quality={78} /></div>
+        <div class="ncard__body">
+          <span class="ncard__src">Folha Vitória · R7</span>
+          <h3>Medrado retoca harmonização com o “dentista dos famosos”</h3>
+          <p>Mais uma personalidade que confia na assinatura do Dr. Bruno — ao lado de nomes como Felipe Prior e Gabi Martins.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
